@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CBI</string>
+
+    <!-- Main Screen !-->
+    <string name="option_menu_my_site">Meu Site</string>
+    <string name="option_menu_gender">Agenda</string>
+    <string name="option_menu_my_clients">Clientes</string>
+    <string name="option_menu_stock">Estoque</string>
+    <string name="option_menu_settings">Configurações</string>
+</resources>
