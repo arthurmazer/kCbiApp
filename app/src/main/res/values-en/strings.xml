@@ -9,6 +9,7 @@
     <string name="option_menu_settings">Settings</string>
     <string name="option_menu_statistics">Statistics</string>
     <string name="option_menu_social_medias">Social Medias</string>
+    <string name="message_intro">Hi sweety! You have 2 appointments scheduled for today! Check then here</string>
 
     <!-- Clients Screen !-->
     <string name="content_description_filter_button">Use this button to refine your searches</string>
