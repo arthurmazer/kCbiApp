@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Cupcakes By Isa</string>
+
+    <!-- Main Screen !-->
+    <string name="option_menu_my_site">My Site</string>
+    <string name="option_menu_gender">Gender</string>
+    <string name="option_menu_my_clients">Clients</string>
+    <string name="option_menu_stock">Stock</string>
+    <string name="option_menu_settings">Settings</string>
+</resources>
