@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CBI</string>
+    <string name="app_name">Cupcakes By Isa</string>
 
     <!-- Main Screen !-->
     <string name="option_menu_my_site">Meu Site</string>
@@ -7,4 +7,9 @@
     <string name="option_menu_my_clients">Clientes</string>
     <string name="option_menu_stock">Estoque</string>
     <string name="option_menu_settings">Configurações</string>
+    <string name="option_menu_statistics">Estatísticas</string>
+    <string name="option_menu_social_medias">Redes Sociais</string>
+
+    <!-- Clients Screen !-->
+    <string name="content_description_filter_button">Filtre sua busca</string>
 </resources>
