@@ -9,6 +9,7 @@
     <string name="option_menu_settings">Configurações</string>
     <string name="option_menu_statistics">Estatísticas</string>
     <string name="option_menu_social_medias">Redes Sociais</string>
+    <string name="option_menu_finances">Finanças</string>
     <string name="message_intro">Olá, você tem 2 compromissos hoje! Veja aqui quais são</string>
 
     <!-- Clients Screen !-->
