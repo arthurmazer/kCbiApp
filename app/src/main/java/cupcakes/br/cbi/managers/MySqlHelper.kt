@@ -2,13 +2,15 @@ package cupcakes.br.cbi.managers
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import cupcakes.br.cbi.models.Client
 import cupcakes.br.cbi.utils.Constants
 import org.jetbrains.anko.db.*
+import java.sql.SQLException
 
 /**
  * Created by monitorapc on 16-Oct-17.
  */
-class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "mydb") {
+class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME) {
 
     companion object {
         private var instance: MySqlHelper? = null
@@ -37,19 +39,33 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "mydb") {
 
     fun insertClient(name: String, birthday: String, phoneNumber: String, facebookUrl: String,location: String){
         this.use {
-            insert(Constants.DB_TABLE_CLIENTS,
-                    "name" to name,
-                    "birthday" to birthday,
-                    "phone_number" to phoneNumber,
-                    "facebook_url" to facebookUrl,
-                    "location" to location)
+            try{
+                insert(Constants.DB_TABLE_CLIENTS,
+                        "name" to name,
+                        "birthday" to birthday,
+                        "phone_number" to phoneNumber,
+                        "facebook_url" to facebookUrl,
+                        "location" to location)
+            }catch (exception: SQLException){
+                error("Error with database connection, please contact Tuco ;)")
+            }
+
         }
     }
 
-    fun selectAllClients(){
-        this.use {
-            select(Constants.DB_TABLE_CLIENTS)
+    fun selectAllClients(): ArrayList<Client> {
+        var result: List<Client> = ArrayList<Client>()
+        val clients = this.use {
+            try{
+                result = select(Constants.DB_TABLE_CLIENTS)
+                        .orderBy("name", SqlOrderDirection.ASC)
+                        .exec { parseList(classParser<Client>()) }  
+            }catch(exception: SQLException){
+                error("Error with database connection, please contact Tuco ;)")
+            }
+
         }
+        return result as ArrayList<Client>
     }
 
 }

@@ -14,4 +14,6 @@
 
     <!-- Clients Screen !-->
     <string name="content_description_filter_button">Use this button to refine your searches</string>
+
+    <string name="database_fault">Error with database connection, please contact Tuco ;)</string>
 </resources>
