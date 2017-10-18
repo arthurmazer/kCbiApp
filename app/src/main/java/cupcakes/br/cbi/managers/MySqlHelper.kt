@@ -37,15 +37,15 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
     }
 
-    fun insertClient(name: String, birthday: String, phoneNumber: String, facebookUrl: String,location: String){
+    fun insertClient(cli: Client){
         this.use {
             try{
                 insert(Constants.DB_TABLE_CLIENTS,
-                        "name" to name,
-                        "birthday" to birthday,
-                        "phone_number" to phoneNumber,
-                        "facebook_url" to facebookUrl,
-                        "location" to location)
+                        "name" to cli.name,
+                        "birthday" to cli.birthday,
+                        "phone_number" to cli.phoneNumber,
+                        "facebook_url" to cli.facebookUrl,
+                        "location" to cli.location)
             }catch (exception: SQLException){
                 error("Error with database connection, please contact Tuco ;)")
             }

@@ -16,4 +16,5 @@
     <string name="content_description_filter_button">Filtre sua busca</string>
 
     <string name="database_fault">Falha ao acessar o banco de dados, contate seu administrador ;)</string>
+    <string name="title_activity_clients">ClientsActivity</string>
 </resources>
