@@ -16,4 +16,15 @@
     <string name="content_description_filter_button">Use this button to refine your searches</string>
 
     <string name="database_fault">Error with database connection, please contact Tuco ;)</string>
+    <string name="title_activity_clients">ClientsActivity</string>
+    <string name="title_activity_add_client">AddClientActivity</string>
+
+    <!-- Add Clients !-->
+    <string name="field_name">Name:</string>
+    <string name="field_birthday">Birthday:</string>
+    <string name="field_phonenumber">Phone:</string>
+    <string name="field_facebookurl">Facebook:</string>
+    <string name="field_location">Location:</string>
+    <string name="button_save">Save</string>
+    <string name="button_cancel">Cancel</string>
 </resources>

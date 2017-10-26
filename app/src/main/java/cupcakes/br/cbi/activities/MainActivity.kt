@@ -1,11 +1,10 @@
 package cupcakes.br.cbi.activities
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import cupcakes.br.cbi.R
 import cupcakes.br.cbi.utils.Constants
-import kotlinx.android.synthetic.main.activity_main.*;
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
