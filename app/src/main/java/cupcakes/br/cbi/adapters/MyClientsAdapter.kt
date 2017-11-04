@@ -18,7 +18,7 @@ class MyClientsAdapter(val clients: ArrayList<Client>) : RecyclerView.Adapter<My
 
 
     override fun onBindViewHolder(holder: MyClientsAdapter.ViewHolder, position: Int) {
-        holder.bind(clients[position])
+        holder?.bind(clients[position])
     }
 
     override fun getItemCount() = clients.size

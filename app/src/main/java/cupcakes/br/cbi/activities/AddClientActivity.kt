@@ -15,16 +15,18 @@ class AddClientActivity : AppCompatActivity() {
 
         val ctx = this.applicationContext
 
-        btnCancel.onClick {
+        btnSave.onClick {
 
             val name = fName.text.toString()
             val birthday = fBirthday.text.toString()
             val facebook = fFacebook.text.toString()
-            val location = ""
+            val location = "location"
             val phoneNumber = fPhonenumber.text.toString()
             val cli = Client(name = name,birthday = birthday,phoneNumber = phoneNumber,facebookUrl = facebook,location = location)
-            if ( checkFields() )
+            if ( checkFields() ) {
                 cli.saveThisClient(ctx)
+                finish()
+            }
         }
 
         btnCancel.onClick {

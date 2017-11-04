@@ -25,8 +25,9 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.createTable(Constants.DB_TABLE_CLIENTS,true,
-                "_id" to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+
+        db.createTable(Constants.DB_TABLE_CLIENTS,false,
+                "_id" to SqlType.create("INTEGER PRIMARY KEY AUTOINCREMENT"),
                 "name" to TEXT,
                 "birthday" to TEXT,
                 "phone_number" to TEXT,
