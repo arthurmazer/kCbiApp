@@ -1,5 +1,6 @@
 package cupcakes.br.cbi.activities
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.design.widget.Snackbar
@@ -8,9 +9,11 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
 import android.widget.RelativeLayout
 import cupcakes.br.cbi.R
 import cupcakes.br.cbi.adapters.MyClientsAdapter
+import cupcakes.br.cbi.commons.RecyclerScrollListener
 import cupcakes.br.cbi.managers.MySqlHelper
 import cupcakes.br.cbi.models.Client
 import cupcakes.br.cbi.utils.Constants
@@ -36,13 +39,21 @@ class MyClientsActivity() : AppCompatActivity(){
         recycler_clients?.layoutManager = LinearLayoutManager(applicationContext)
         recycler_clients?.itemAnimator = DefaultItemAnimator()
         recycler_clients?.adapter = MyClientsAdapter(list_clients)
-
-
+        recycler_clients?.addOnScrollListener(
+                RecyclerScrollListener({onScrollUp()}, {onScrollDown()},recycler_clients?.layoutManager as LinearLayoutManager)
+        )
 
         fab.setOnClickListener { view ->
             handleFabClick()
         }
+    }
 
+    fun onScrollUp(){
+        fab.hide()
+    }
+
+    fun onScrollDown(){
+        fab.show()
     }
 
     override fun onResume() {
@@ -55,19 +66,12 @@ class MyClientsActivity() : AppCompatActivity(){
     }
 
     fun loadClients(){
-        Log.d("clientes", "lodeo")
         var arrayClients: List<Client> = ArrayList<Client>()
         val db = MySqlHelper(applicationContext)
 
         arrayClients = db.selectAllClients()
         list_clients.clear()
         list_clients.addAll(arrayClients)
-
-        for (cli in list_clients) {
-            Log.d("clientes", cli.name)
-            Log.d("clientes", ""+ cli.id)
-        }
-
         recycler_clients?.adapter?.notifyDataSetChanged()
     }
 
