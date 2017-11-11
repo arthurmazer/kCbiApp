@@ -4,65 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/cup_background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="cupcakes.br.cbi.activities.AddClientActivity">
 
     <EditText
         android:id="@+id/fName"
-        android:layout_width="345dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="310dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/custom_edittext"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/person"
         android:ems="10"
+        android:focusedByDefault="false"
+        android:hint="@string/field_name"
         android:inputType="textPersonName"
-        android:text="@string/field_name"
+        android:paddingStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tBirthday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/field_birthday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fName" />
-
     <EditText
         android:id="@+id/fBirthday"
-        android:layout_width="192dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="310dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/if_cupcake_candle_birthday"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:focusedByDefault="false"
+        android:hint="@string/field_birthday"
         android:inputType="date"
-        app:layout_constraintStart_toEndOf="@+id/tBirthday"
+        android:paddingLeft="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fName" />
 
     <EditText
         android:id="@+id/fPhonenumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="310dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/if_ic_phone"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:focusedByDefault="false"
+        android:hint="@string/field_phonenumber"
         android:inputType="textPersonName"
-        android:text="@string/field_phonenumber"
+        android:paddingLeft="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tBirthday" />
-
-    <EditText
-        android:id="@+id/fFacebook"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/field_facebookurl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fPhonenumber" />
+        app:layout_constraintTop_toBottomOf="@+id/fBirthday" />
 
     <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
@@ -70,36 +68,15 @@
 
     </android.support.v7.widget.CardView>
 
-    <fragment
-        android:id="@+id/fLocation"
-        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fFacebook" />
-
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="336dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/custom_edittext"
         android:text="@string/button_save"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fLocation" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/button_cancel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

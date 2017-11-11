@@ -16,15 +16,15 @@
     <string name="content_description_filter_button">Filtre sua busca</string>
 
     <string name="database_fault">Falha ao acessar o banco de dados, contate seu administrador ;)</string>
-    <string name="title_activity_clients">ClientsActivity</string>
-    <string name="title_activity_add_client">AddClientActivity</string>
+    <string name="title_activity_clients">Meus Clientes</string>
+    <string name="title_activity_add_client">Adicionar Cliente</string>
 
     <!-- Add Clients !-->
-    <string name="field_name">Nome:</string>
-    <string name="field_birthday">Aniversário:</string>
-    <string name="field_phonenumber">Telefone:</string>
-    <string name="field_facebookurl">Facebook:</string>
-    <string name="field_location">Localização:</string>
+    <string name="field_name">Nome</string>
+    <string name="field_birthday">Aniversário</string>
+    <string name="field_phonenumber">Telefone</string>
+    <string name="field_facebookurl">Facebook</string>
+    <string name="field_location">Localização</string>
     <string name="button_save">Salvar</string>
     <string name="button_cancel">Cancelar</string>
 </resources>

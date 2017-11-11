@@ -30,9 +30,7 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME
                 "_id" to SqlType.create("INTEGER PRIMARY KEY AUTOINCREMENT"),
                 "name" to TEXT,
                 "birthday" to TEXT,
-                "phone_number" to TEXT,
-                "facebook_url" to TEXT,
-                "location" to TEXT)
+                "phone_number" to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -44,9 +42,7 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME
                 insert(Constants.DB_TABLE_CLIENTS,
                         "name" to cli.name,
                         "birthday" to cli.birthday,
-                        "phone_number" to cli.phoneNumber,
-                        "facebook_url" to cli.facebookUrl,
-                        "location" to cli.location)
+                        "phone_number" to cli.phoneNumber)
             }catch (exception: SQLException){
                 error("Error with database connection, please contact Tuco ;)")
             }
