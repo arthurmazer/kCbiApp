@@ -27,4 +27,15 @@
     <string name="field_location">Location</string>
     <string name="button_save">Save</string>
     <string name="button_cancel">Cancel</string>
+    <string name="alert_title">Hey!</string>
+    <string name="alert_message">You can add directly from your contact list!</string>
+    <string name="alert_positive_message">Yea, Nice</string>
+    <string name="alert_negative_message">No big deal</string>
+    <string name="error_missing_fields">You have some empty fields</string>
+    <string name="save_client_success_title">Yay!</string>
+    <string name="save_client_success_message">Your client was successfully saved! Do you want to add more?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="save_client_error_title">Error</string>
+    <string name="save_clieent_error_message">For some reason, we can\'t  save your client, pls tell it to your programmer</string>
 </resources>

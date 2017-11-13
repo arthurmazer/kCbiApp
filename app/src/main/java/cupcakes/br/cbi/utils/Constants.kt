@@ -8,7 +8,5 @@ import android.content.res.Resources
 object Constants {
     const val DB_NAME = "cbi_database"
     const val DB_TABLE_CLIENTS = "Clients"
-    const val UP = 0;
-    const val DOWN = 1;
 
 }

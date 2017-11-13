@@ -27,4 +27,15 @@
     <string name="field_location">Localização</string>
     <string name="button_save">Salvar</string>
     <string name="button_cancel">Cancelar</string>
+    <string name="alert_title">Hey!</string>
+    <string name="alert_message">Você pode selecionar um contato direto da sua lista!</string>
+    <string name="alert_positive_message">Perfeito</string>
+    <string name="alert_negative_message">Prefiro digitar</string>
+    <string name="error_missing_fields">Você tem campos em branco</string>
+    <string name="save_client_success_title">Ebaa!</string>
+    <string name="save_client_success_message">Seu cliente foi salvo com sucesso! Quer adicionar mais?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="save_client_error_title">Erro</string>
+    <string name="save_clieent_error_message">Erro ao salvar seu cliente, call Tuco</string>
 </resources>

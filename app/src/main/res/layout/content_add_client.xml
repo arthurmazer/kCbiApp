@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    android:background="@drawable/cup_background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="cupcakes.br.cbi.activities.AddClientActivity">
 
@@ -36,10 +35,11 @@
         android:drawableLeft="@drawable/if_cupcake_candle_birthday"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:focusedByDefault="false"
+        android:focusable="false"
         android:hint="@string/field_birthday"
         android:inputType="date"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,21 +52,16 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_edittext"
-        android:drawableLeft="@drawable/if_ic_phone"
+        android:drawableStart="@drawable/if_ic_phone"
         android:drawablePadding="10dp"
         android:ems="10"
+        android:focusable="true"
         android:focusedByDefault="false"
         android:hint="@string/field_phonenumber"
-        android:inputType="textPersonName"
+        android:inputType="numberSigned"
         android:paddingLeft="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fBirthday" />
-
-    <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    </android.support.v7.widget.CardView>
 
     <Button
         android:id="@+id/btnSave"
