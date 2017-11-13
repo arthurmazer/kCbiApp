@@ -15,7 +15,6 @@ import android.app.Activity
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
-import android.util.Log
 import android.widget.Toast
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.toast
@@ -91,36 +90,35 @@ class AddClientActivity : AppCompatActivity() {
 
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        super.onActivityResult(requestCode, resultCode, data)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
 
-        when (requestCode) {
-            1 -> if (resultCode == Activity.RESULT_OK) {
-                val contactData = data.data
+            when (requestCode) {
+                1 -> if (resultCode == Activity.RESULT_OK) {
+                    val contactData = data?.data
 
-                val cur = contentResolver.query(contactData!!, null, null, null, null)
-                if (cur!!.count > 0) {// thats mean some resutl has been found
-                    if (cur.moveToNext()) {
-                        val id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID))
-                        val name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
-                        fName.setText(name)
+                    val cur = contentResolver.query(contactData!!, null, null, null, null)
+                    if (cur!!.count > 0) {// thats mean some resutl has been found
+                        if (cur.moveToNext()) {
+                            val id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID))
+                            val name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                            fName.setText(name)
 
-                        if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
+                            if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
 
-                            val phones = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null)
-                            while (phones!!.moveToNext()) {
-                                val phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
-                                Log.d("Number", phoneNumber)
-                                fPhonenumber.setText(phoneNumber)
+                                val phones = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null)
+                                while (phones!!.moveToNext()) {
+                                    val phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                                    fPhonenumber.setText(phoneNumber)
+                                }
+                                phones.close()
                             }
-                            phones.close()
-                        }
 
+                        }
                     }
+                    cur.close()
                 }
-                cur.close()
             }
-        }
 
     }
 
