@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.turingtechnologies.materialscrollbar.*
 import cupcakes.br.cbi.R
 import cupcakes.br.cbi.adapters.MyClientsAdapter
 import cupcakes.br.cbi.commons.RecyclerScrollListener
@@ -23,6 +24,7 @@ class MyClientsActivity() : AppCompatActivity(){
 
     val list_clients: ArrayList<Client> = arrayListOf<Client>()
     var recycler_clients: RecyclerView? = null
+    var materialScrollbar: TouchScrollBar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,15 @@ class MyClientsActivity() : AppCompatActivity(){
         recycler_clients?.addOnScrollListener(
                 RecyclerScrollListener({onScrollUp()}, {onScrollDown()},recycler_clients?.layoutManager as LinearLayoutManager)
         )
+
+        var alphaInd = AlphabetIndicator(applicationContext)
+
+        materialScrollbar = TouchScrollBar(this, recycler_clients, true)
+        materialScrollbar?.setIndicator(
+                alphaInd,
+                true
+        )
+
 
         fab.setOnClickListener { view ->
             handleFabClick()
