@@ -37,5 +37,5 @@
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="save_client_error_title">Erro</string>
-    <string name="save_clieent_error_message">Erro ao salvar seu cliente, call Tuco</string>
+    <string name="save_client_error_message">Erro ao salvar seu cliente, call Tuco</string>
 </resources>

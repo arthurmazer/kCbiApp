@@ -70,7 +70,7 @@ class MyClientsActivity() : AppCompatActivity(){
     }
 
     fun loadClients(){
-        var arrayClients: List<Client> = ArrayList<Client>()
+        var arrayClients: List<Client> = ArrayList<Client>() as List<Client>
         val db = MySqlHelper(applicationContext)
 
         arrayClients = db.selectAllClients()

@@ -16,6 +16,7 @@ import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.widget.Toast
+import cupcakes.br.cbi.utils.Constants
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.toast
 
@@ -23,16 +24,30 @@ import org.jetbrains.anko.toast
 class AddClientActivity : AppCompatActivity() {
 
     private val READ_CONTACTS_PERMISSIONS_REQUEST = 1
+    var clientID = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_add_client)
 
-        alert(resources.getString(R.string.alert_message)) {
-            title = resources.getString(R.string.alert_title)
-            positiveButton(resources.getString(R.string.alert_positive_message)) { getPermissionAndCallReadUserContacts()  }
-            negativeButton(resources.getString(R.string.alert_negative_message)) { }
-        }.show()
+        //check if is edit
+        var edit = intent.getBooleanExtra(Constants.EDIT_CLIENT, false)
+
+        //this statement is only for adding new clients
+        if (!edit) {
+            alert(resources.getString(R.string.alert_message)) {
+                title = resources.getString(R.string.alert_title)
+                positiveButton(resources.getString(R.string.alert_positive_message)) { getPermissionAndCallReadUserContacts() }
+                negativeButton(resources.getString(R.string.alert_negative_message)) { }
+            }.show()
+
+        }else{
+            //get extras for edit
+            fName.setText(intent.getStringExtra(Constants.EDIT_CLIENT_NAME))
+            fBirthday.setText(intent.getStringExtra(Constants.EDIT_CLIENT_BIRTHDAY))
+            fPhonenumber.setText(intent.getStringExtra(Constants.EDIT_CLIENT_PHONE))
+            clientID = intent.getStringExtra(Constants.EDIT_CLIENT_ID)
+        }
 
         val ctx = this.applicationContext
 
@@ -43,15 +58,29 @@ class AddClientActivity : AppCompatActivity() {
             val phoneNumber = fPhonenumber.text.toString()
             val cli = Client(name = name,birthday = birthday,phoneNumber = phoneNumber)
             if ( checkFields() ) {
-                cli.saveThisClient(ctx)
 
-                alert(resources.getString(R.string.save_client_success_message)) {
-                    title = resources.getString(R.string.save_client_success_title)
-                    positiveButton(resources.getString(R.string.yes)) {
-                        cleanFields(); getPermissionAndCallReadUserContacts()  }
-                    negativeButton(resources.getString(R.string.no)) { finish() }
-                }.show()
+                if (edit){
+                    if (clientID.isNotEmpty()){
+                        try{
+                            cli.updateThisClient(ctx,clientID.toInt())
+                            finish()
+                        }catch (exception: ClassCastException){
+                            toast(resources.getString(R.string.save_client_error_message))
+                        }
+                    }else{
+                        toast(resources.getString(R.string.save_client_error_message))
+                    }
 
+                }else{
+                    cli.saveThisClient(ctx)
+
+                    alert(resources.getString(R.string.save_client_success_message)) {
+                        title = resources.getString(R.string.save_client_success_title)
+                        positiveButton(resources.getString(R.string.yes)) {
+                            cleanFields(); getPermissionAndCallReadUserContacts()  }
+                        negativeButton(resources.getString(R.string.no)) { finish() }
+                    }.show()
+                }
 
             }
         }

@@ -37,5 +37,5 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="save_client_error_title">Error</string>
-    <string name="save_clieent_error_message">For some reason, we can\'t  save your client, pls tell it to your programmer</string>
+    <string name="save_client_error_message">For some reason, we can\'t  save your client, pls tell it to your programmer</string>
 </resources>

@@ -15,6 +15,15 @@ class Client(val id: Int = 1,val name: String, val birthday: String, val phoneNu
         db.insertClient(this)
         return true
     }
+
+    fun updateThisClient(ctx: Context, id: Int): Boolean{
+        val db = MySqlHelper(ctx)
+
+        db.updateClient(id,this)
+        return true
+    }
+
+
 }
 
 

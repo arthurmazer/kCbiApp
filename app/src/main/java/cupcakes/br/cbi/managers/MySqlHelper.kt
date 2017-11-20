@@ -28,9 +28,9 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME
 
         db.createTable(Constants.DB_TABLE_CLIENTS,false,
                 "_id" to SqlType.create("INTEGER PRIMARY KEY AUTOINCREMENT"),
-                "name" to TEXT,
-                "birthday" to TEXT,
-                "phone_number" to TEXT)
+                Constants.DB_CLIENTS_COLUMN_NAME to TEXT,
+                Constants.DB_CLIENTS_COLUMN_BIRTHDAY to TEXT,
+                Constants.DB_CLIENTS_COLUMN_PHONE to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -40,9 +40,25 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME
         this.use {
             try{
                 insert(Constants.DB_TABLE_CLIENTS,
-                        "name" to cli.name,
-                        "birthday" to cli.birthday,
-                        "phone_number" to cli.phoneNumber)
+                        Constants.DB_CLIENTS_COLUMN_NAME to cli.name,
+                        Constants.DB_CLIENTS_COLUMN_BIRTHDAY to cli.birthday,
+                        Constants.DB_CLIENTS_COLUMN_PHONE to cli.phoneNumber)
+            }catch (exception: SQLException){
+                error("Error with database connection, please contact Tuco ;)")
+            }
+
+        }
+    }
+
+    fun updateClient(id: Int, newCli: Client){
+        this.use {
+            try{
+                update(Constants.DB_TABLE_CLIENTS,
+                        Constants.DB_CLIENTS_COLUMN_NAME to newCli.name,
+                        Constants.DB_CLIENTS_COLUMN_BIRTHDAY to newCli.birthday,
+                        Constants.DB_CLIENTS_COLUMN_PHONE to newCli.phoneNumber)
+                        .whereArgs(Constants.DB_CLIENTS_COLUMN_ID + " = {userId}", "userId" to id)
+                        .exec()
             }catch (exception: SQLException){
                 error("Error with database connection, please contact Tuco ;)")
             }

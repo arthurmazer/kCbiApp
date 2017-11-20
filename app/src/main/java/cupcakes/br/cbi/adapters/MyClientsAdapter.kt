@@ -1,13 +1,15 @@
 package cupcakes.br.cbi.adapters
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import com.turingtechnologies.materialscrollbar.INameableAdapter
 import cupcakes.br.cbi.R
+import cupcakes.br.cbi.activities.AddClientActivity
 import cupcakes.br.cbi.models.Client
+import cupcakes.br.cbi.utils.Constants
 import kotlinx.android.synthetic.main.item_client_content.view.*
 
 /**
@@ -36,27 +38,33 @@ class MyClientsAdapter(val clients: ArrayList<Client>) : RecyclerView.Adapter<My
         return ViewHolder(view)
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnLongClickListener, View.OnClickListener{
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnLongClickListener{
+
+        //client id and phone are not part of the layout, so we need a var to store this
+        var clientID = ""
+        var clientPhone = ""
 
         init {
-            itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
         }
 
-        override fun onClick(p0: View?) {
-
-            Log.d("lavai", "uai")
-            Log.d("lavai3", "asd " + adapterPosition)
-
-        }
 
         override fun onLongClick(p0: View?): Boolean {
-            Log.d("lavai", "asd " + adapterPosition)
-            return false
+            var it = Intent(itemView.context , AddClientActivity::class.java)
+            it.putExtra(Constants.EDIT_CLIENT, true)
+            it.putExtra(Constants.EDIT_CLIENT_NAME, itemView.textNameClient.text.toString())
+            it.putExtra(Constants.EDIT_CLIENT_BIRTHDAY, itemView.textBirthdayClient.text.toString())
+            it.putExtra(Constants.EDIT_CLIENT_PHONE, clientPhone)
+            it.putExtra(Constants.EDIT_CLIENT_ID, clientID)
+            itemView.context.startActivity(it)
+            return true
         }
 
         fun bind(client: Client, pos: Int) = with(itemView){
             textNameClient.text = client.name
-            textBirthdayClient.text = client.birthday.toString()
+            textBirthdayClient.text = client.birthday
+            clientPhone = client.phoneNumber
+            clientID = client.id.toString()
         }
     }
 }
