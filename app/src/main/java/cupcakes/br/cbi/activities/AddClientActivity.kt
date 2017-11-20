@@ -163,7 +163,7 @@ class AddClientActivity : AppCompatActivity() {
                         if (cur.moveToNext()) {
                             val id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID))
                             val name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
-                            fName.setText(name)
+                            fName.setText(name.capitalize())
 
                             if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
 

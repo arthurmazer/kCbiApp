@@ -8,6 +8,7 @@ import android.view.View
 import com.turingtechnologies.materialscrollbar.INameableAdapter
 import cupcakes.br.cbi.R
 import cupcakes.br.cbi.activities.AddClientActivity
+import cupcakes.br.cbi.commons.ClientInterface
 import cupcakes.br.cbi.models.Client
 import cupcakes.br.cbi.utils.Constants
 import kotlinx.android.synthetic.main.item_client_content.view.*
@@ -16,6 +17,8 @@ import kotlinx.android.synthetic.main.item_client_content.view.*
  * Created by monitorapc on 16-Oct-17.
  */
 class MyClientsAdapter(val clients: ArrayList<Client>) : RecyclerView.Adapter<MyClientsAdapter.ViewHolder>(), INameableAdapter {
+
+    var clients_origin = ArrayList<Client>()
 
     override fun getCharacterForElement(element: Int): Char {
 
@@ -66,5 +69,31 @@ class MyClientsAdapter(val clients: ArrayList<Client>) : RecyclerView.Adapter<My
             clientPhone = client.phoneNumber
             clientID = client.id.toString()
         }
+    }
+
+
+
+    fun filter(text: String, cliInterface: ClientInterface){
+
+        if (clients_origin.isEmpty())
+            clients_origin.addAll(clients)
+
+        var list_clients = ArrayList<Client>()
+        var textSearch = text
+
+        if (text.isEmpty()) {
+            list_clients.addAll(clients_origin)
+        } else {
+            textSearch = text.toLowerCase()
+            for (client in clients_origin) {
+                if (client.name.toLowerCase().contains(textSearch)) {
+                        list_clients.add(client)
+                }
+
+            }
+        }
+        cliInterface.onClientSearch(list_clients)
+
+
     }
 }
