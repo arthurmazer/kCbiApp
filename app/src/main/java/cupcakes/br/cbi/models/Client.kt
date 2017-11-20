@@ -23,6 +23,12 @@ class Client(val id: Int = 1,val name: String, val birthday: String, val phoneNu
         return true
     }
 
+    fun deleteThisClient(ctx: Context, id: Int): Boolean{
+        val db = MySqlHelper(ctx)
+
+        db.deleteClient(id)
+        return true
+    }
 
 }
 

@@ -15,6 +15,7 @@ import android.app.Activity
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.view.View
 import android.widget.Toast
 import cupcakes.br.cbi.utils.Constants
 import org.jetbrains.anko.alert
@@ -42,6 +43,10 @@ class AddClientActivity : AppCompatActivity() {
             }.show()
 
         }else{
+
+            //isEdit true. set delete button visible
+            btnDelete.visibility = View.VISIBLE
+
             //get extras for edit
             fName.setText(intent.getStringExtra(Constants.EDIT_CLIENT_NAME))
             fBirthday.setText(intent.getStringExtra(Constants.EDIT_CLIENT_BIRTHDAY))
@@ -50,6 +55,33 @@ class AddClientActivity : AppCompatActivity() {
         }
 
         val ctx = this.applicationContext
+
+        btnDelete.onClick {
+
+            if (clientID.isNotEmpty()){
+                try{
+                    val name = fName.text.toString()
+                    val birthday = fBirthday.text.toString()
+                    val phoneNumber = fPhonenumber.text.toString()
+                    val cli = Client(name = name,birthday = birthday,phoneNumber = phoneNumber)
+                    alert(resources.getString(R.string.delete_client_confirmation)) {
+                        title = resources.getString(R.string.alert_title_warning)
+                        positiveButton(resources.getString(R.string.yes)) {
+                            cli.deleteThisClient(ctx,clientID.toInt())
+                            finish()
+                        }
+                        negativeButton(resources.getString(R.string.no)) { }
+                    }.show()
+
+                }catch (exception: ClassCastException){
+                    toast(resources.getString(R.string.save_client_error_message))
+                }
+            }else{
+                toast(resources.getString(R.string.save_client_error_message))
+            }
+
+
+        }
 
         btnSave.onClick {
 

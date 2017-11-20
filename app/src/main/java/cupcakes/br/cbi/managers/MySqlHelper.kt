@@ -66,6 +66,18 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME
         }
     }
 
+    fun deleteClient(id: Int){
+        this.use {
+            try{
+                delete(Constants.DB_TABLE_CLIENTS,
+                        Constants.DB_CLIENTS_COLUMN_ID + " = {userId}", "userId" to id)
+            }catch (exception: SQLException){
+                error("Error with database connection, please contact Tuco ;)")
+            }
+
+        }
+    }
+
     fun selectAllClients(): ArrayList<Client> {
         var result: List<Client> = ArrayList<Client>()
         val clients = this.use {

@@ -26,6 +26,7 @@
     <string name="field_facebookurl">Facebook</string>
     <string name="field_location">Location</string>
     <string name="button_save">Save</string>
+    <string name="button_delete">Delete</string>
     <string name="button_cancel">Cancel</string>
     <string name="alert_title">Hey!</string>
     <string name="alert_message">You can add directly from your contact list!</string>
@@ -38,4 +39,6 @@
     <string name="no">No</string>
     <string name="save_client_error_title">Error</string>
     <string name="save_client_error_message">For some reason, we can\'t  save your client, pls tell it to your programmer</string>
+    <string name="delete_client_confirmation">Are you sure that you want to delete this client?</string>
+    <string name="alert_title_warning">Warning</string>
 </resources>
