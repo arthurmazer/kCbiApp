@@ -13,10 +13,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toast(Constants.DB_NAME)
 
         btnClients.setOnClickListener {
             startActivity<MyClientsActivity>()
         }
+
+        btnMenu.setOnClickListener({
+            startActivity<MyMenuActivity>()
+        })
     }
 }

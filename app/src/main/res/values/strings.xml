@@ -10,6 +10,7 @@
     <string name="option_menu_statistics">Estatísticas</string>
     <string name="option_menu_social_medias">Redes Sociais</string>
     <string name="option_menu_finances">Finanças</string>
+    <string name="option_menu_menu">Cardápio</string>
     <string name="message_intro">Olá, você tem 2 compromissos hoje! Veja aqui quais são</string>
 
     <!-- Clients Screen !-->
@@ -41,4 +42,5 @@
     <string name="save_client_error_message">Erro ao salvar seu cliente, call Tuco</string>
     <string name="delete_client_confirmation">Você tem certeza que deseja deletar este cliente?</string>
     <string name="alert_title_warning">Aviso</string>
+    <string name="title_activity_my_menu">MyMenu</string>
 </resources>

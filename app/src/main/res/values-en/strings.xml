@@ -10,6 +10,7 @@
     <string name="option_menu_statistics">Statistics</string>
     <string name="option_menu_social_medias">Social Medias</string>
     <string name="option_menu_finances">Finances</string>
+    <string name="option_menu_menu">Cardápio</string>
     <string name="message_intro">Hi sweety! You have 2 appointments scheduled for today! Check then here</string>
 
     <!-- Clients Screen !-->
