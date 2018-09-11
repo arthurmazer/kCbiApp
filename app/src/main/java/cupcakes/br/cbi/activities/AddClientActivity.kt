@@ -22,7 +22,7 @@ import org.jetbrains.anko.alert
 import org.jetbrains.anko.toast
 
 
-class AddClientActivity : AppCompatActivity() {
+class   AddClientActivity : AppCompatActivity() {
 
     private val READ_CONTACTS_PERMISSIONS_REQUEST = 1
     var clientID = ""

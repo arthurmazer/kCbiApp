@@ -9,7 +9,7 @@ import cupcakes.br.cbi.models.Menu
 import kotlinx.android.synthetic.main.content_menu_food.view.*
 
 /**
- * Created by monitorapc on 21-Nov-17.
+ * Created by arthurmazer on 21-Nov-17.
  */
 class MyMenuAdapter(val foods: ArrayList<Menu>)  : RecyclerView.Adapter<MyMenuAdapter.ViewHolder>() {
 

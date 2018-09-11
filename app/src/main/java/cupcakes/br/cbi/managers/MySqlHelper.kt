@@ -8,7 +8,7 @@ import org.jetbrains.anko.db.*
 import java.sql.SQLException
 
 /**
- * Created by monitorapc on 16-Oct-17.
+ * Created by arthurmazer on 16-Oct-17.
  */
 class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Constants.DB_NAME) {
 

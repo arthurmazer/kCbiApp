@@ -3,8 +3,6 @@ package cupcakes.br.cbi.commons
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
-import cupcakes.br.cbi.utils.Constants
 
 class RecyclerScrollListener(
         val funcScrollUp: () -> Unit,

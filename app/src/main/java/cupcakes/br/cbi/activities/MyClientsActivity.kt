@@ -19,7 +19,7 @@ import org.jetbrains.anko.startActivity
 
 
 /**
- * Created by monitorapc on 16-Oct-17.
+ * Created by arthurmazer on 16-Oct-17.
  */
 
 class MyClientsActivity() : AppCompatActivity(), ClientInterface{

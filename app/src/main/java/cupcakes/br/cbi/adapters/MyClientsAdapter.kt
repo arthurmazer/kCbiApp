@@ -14,7 +14,7 @@ import cupcakes.br.cbi.utils.Constants
 import kotlinx.android.synthetic.main.item_client_content.view.*
 
 /**
- * Created by monitorapc on 16-Oct-17.
+ * Created by arthurmazer on 16-Oct-17.
  */
 class MyClientsAdapter(val clients: ArrayList<Client>) : RecyclerView.Adapter<MyClientsAdapter.ViewHolder>(), INameableAdapter {
 

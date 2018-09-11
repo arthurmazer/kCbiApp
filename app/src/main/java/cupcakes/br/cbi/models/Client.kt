@@ -34,5 +34,3 @@ class Client(val id: Int = 1,val name: String, val birthday: String, val phoneNu
 
 
 
-
-//wtf it's so easy
